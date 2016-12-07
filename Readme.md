@@ -3,7 +3,23 @@
 This repo contains the materials used in the demonstrations for API Tech Forum 2016,
 at SmogShoppe in Los Angeles, 2016 December 7.
 
+
+## Running the demos
+
+You will need to deploy the [proxy bundle](apiproxy) into an Apigee Edge organization.
+This proxy bundle relies on Java callouts, so it needs to be an evaluation or commercial organization. Trial organizations in Edge will not properly run Java callouts.
+
+To deploy the proxy bundle from the filesystem, you can rely on [pushapi](https://github.com/carloseberhardt/apiploy) or another similar tool.  
+
+
+
+## On JWT
+
+One of the demonstrations exchanges a JWT for an opaque OAuth token. To exercise that part of the demonstration, you will need a public/private keypair. 
+
+
 ## To create a key pair:
+
 
 ```
 mkdir keys
@@ -15,6 +31,9 @@ cd ..
 ```
 
 ## To provision a Developer + App for this Proxy
+
+This will attach the public key to the developer app inside Edge.
+
 
 ```
 tools/provisionDeveloperAndApp.sh -o ORGNAME -n -p APIPRODUCTNAME -k PUBLIC_KEY_FILE
@@ -28,10 +47,14 @@ tools/provisionDeveloperAndApp.sh -o cap500 -n -p ApiTechForum -k keys/public.pe
 ```
 
 
-Take note of the consumer (aka client) key and secret.  You can use this in the requests-for-token, using grant types of client-credentials and password.
+Take note of the consumer (aka client) key and secret.  You can use this
+in the requests-for-token, using grant types of client-credentials and
+password.
 
 
 ## To create a JWT signed with that private key:
+
+This simulates what the developer app would need to do, each time it requests a new token. 
 
 ```
 tools/createJwt.sh -k PRIVATE_KEY_FILE  -i CONSUMER_KEY_HERE
@@ -42,11 +65,16 @@ eg
 tools/createJwt.sh -k keys/private-pkcs8.pem  -i jB2prf9LeDsiJCrpnaR1naDUJZw5KAko
 ```
 
-## To exchange the JWT for an opaque token
+## To exchange the generated JWT for an opaque token
 
 curl -X POST -H content-type:application/x-www-form-urlencoded \
   https://cap500-test.apigee.net/jwt2token/token \
  -d  'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1WTZKeE02MThweHBpaUxnNzRhRE5lam5qck9Bb2FPSCIsImF1ZCI6Imh0dHBzOlwvXC93d3cuY2FwNTAwLmNvbVwvYXBpdGVjaGZvcm1cL3Rva2VuIiwiZXhwIjoxNDgxMDAwOTA1LCJpYXQiOjE0ODEwMDA2MDUsInNjb3BlIjoiaHR0cHM6XC9cL3d3dy5leGFtcGxlLmNvbVwvYXBpdGVjaGZvcnVtLnJlYWRvbmx5In0.fFBID_HOohjE8eiPKGxX0T3k024ujHAmbgNpgzGRs30DlRNfa0BqkCdtCYwMbtFM0SuzlwIV7lzt-nqac_vKPRZKBdwW6l_WGc33t9B3ZGxklE6lcqBD25oubwd95_nvrnlpuf1Fo3K1nHKJr8n1RocHsn2DLT2W18r3xQVFFDzEN-JNMf8ok9i9fkRF4gXF6zNTQ9X-0F_HvzEzLwuhu_4IdFMdjHk02xK1fAQZcbzkSUH8QKaciG5z7u89vM2HWBrKYp6DFxelD9f1iGYfw9JW3VbyH8AeQXGGknUVez_V2HLj2sj4pSEqzUXd1JdUJ7Yx3ygdWrezpF6JoNY7GA'
+
+## Postman Collection
+
+There is a postman collection with a number of requests contained therein.
+You will need to set up a postman environment with an org and env setting.
 
 
 ## License
