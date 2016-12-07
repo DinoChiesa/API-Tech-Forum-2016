@@ -75,7 +75,8 @@ curl -X POST -H content-type:application/x-www-form-urlencoded \\
 
 ## Postman Collection
 
-There is a postman collection with a number of requests contained therein.
+There is [a postman collection](assets/0 - API Tech Forum.postman_collection)
+with a number of requests contained therein.
 You will need to set up a postman environment with an org and env setting.
 
 
