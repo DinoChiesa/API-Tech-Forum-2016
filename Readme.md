@@ -6,18 +6,29 @@ at SmogShoppe in Los Angeles, 2016 December 7.
 ## To create a key pair:
 
 ```
+mkdir keys
+cd keys
 openssl genrsa -out private.pem 2048
 openssl pkcs8 -topk8 -inform pem -in private.pem -outform pem -nocrypt -out private-pkcs8.pem
 openssl rsa -in private.pem -outform PEM -pubout -out public.pem
+cd ..
 ```
 
 ## To provision a Developer + App for this Proxy
 
 ```
-tools/provisionDeveloperAndApp.sh -o cap500 -n -p ApiTechForum -k keys/public.pem 
-``
+tools/provisionDeveloperAndApp.sh -o ORGNAME -n -p APIPRODUCTNAME -k PUBLIC_KEY_FILE
+```
 
-Take note of the client key and secret.
+eg,
+
+
+```
+tools/provisionDeveloperAndApp.sh -o cap500 -n -p ApiTechForum -k keys/public.pem 
+```
+
+
+Take note of the consumer (aka client) key and secret.  You can use this in the requests-for-token, using grant types of client-credentials and password.
 
 
 ## To create a JWT signed with that private key:
