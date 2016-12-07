@@ -68,9 +68,9 @@ tools/createJwt.sh -k keys/private-pkcs8.pem  -i jB2prf9LeDsiJCrpnaR1naDUJZw5KAk
 ## To exchange the generated JWT for an opaque token
 
 ```
-curl -X POST -H content-type:application/x-www-form-urlencoded \\
-  https://cap500-test.apigee.net/jwt2token/token \\
- -d  'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=JWT.GOES.HERE'
+curl -X POST -H content-type:application/x-www-form-urlencoded \
+  https://ORGNAME-ENVNAME.apigee.net/jwt2token/token \
+  -d  'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=JWT.GOES.HERE'
 ```
 
 ## Postman Collection
