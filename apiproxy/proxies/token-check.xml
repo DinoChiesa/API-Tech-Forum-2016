@@ -1,0 +1,52 @@
+<ProxyEndpoint name='token-check'>
+  <Description>Endpoint to demonstrate Token Checking</Description>
+  <HTTPProxyConnection>
+    <BasePath>/apitechforum/token-check</BasePath>
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+
+  <FaultRules>
+    <FaultRule name='invalid-token'>
+      <Step>
+        <Name>AM-InvalidAccessToken</Name>
+      </Step>
+      <Condition>(fault.name = "InvalidAccessToken") OR (fault.name = "invalid_access_token")</Condition>
+      </FaultRule>
+  </FaultRules>
+
+  <PreFlow name='PreFlow'>
+      <Request/>
+      <Response/>
+  </PreFlow>
+  <PostFlow name='PostFlow'>
+      <Request/>
+      <Response>
+        <Step><Name>AM-CleanResponseHeaders</Name></Step>
+      </Response>
+  </PostFlow>
+
+  <Flows>
+    <Flow name='token check'>
+      <Description>demonstrate OAuthV2 token check</Description>
+      <Condition>(request.verb = "POST") or (request.verb = "GET")</Condition>
+      <Request>
+        <Step><Name>OAuthV2-VerifyAccessToken</Name></Step>
+      </Request>
+      <Response>
+        <Step><Name>AM-OAuthCheckResponse</Name></Step>
+      </Response>
+    </Flow>
+
+    <Flow name='unknown request'>
+      <Request>
+        <Step><Name>RF-UnknownRequest</Name></Step>
+      </Request>
+      <Response/>
+    </Flow>
+
+  </Flows>
+
+  <!-- keep this if no target (eg, for oauth token generation and refresh) -->
+  <RouteRule name='NoRouteRule'/>
+
+</ProxyEndpoint>

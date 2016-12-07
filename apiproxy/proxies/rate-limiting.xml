@@ -1,0 +1,56 @@
+<ProxyEndpoint name='rate-limiting'>
+  <Description>Endpoint to demonstrate Rate limiting protection</Description>
+  <HTTPProxyConnection>
+    <BasePath>/apitechforum/rate-limiting</BasePath>
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+
+  <FaultRules>
+    <FaultRule name='spike-triggered'>
+      <Step>
+        <Name>JS-FormatSpikeFault</Name>
+      </Step>
+      <Condition>(ratelimit.Spike-1.failed = true) OR (ratelimit.Spike-2.failed = true)</Condition>
+      </FaultRule>
+  </FaultRules>
+
+  <PreFlow name='PreFlow'>
+      <Request/>
+      <Response/>
+  </PreFlow>
+  <PostFlow name='PostFlow'>
+      <Request/>
+      <Response>
+        <Step><Name>AM-CleanResponseHeaders</Name></Step>
+      </Response>
+  </PostFlow>
+
+  <Flows>
+    <Flow name='rate limiting protection'>
+      <Description>demonstrate Rate limiting</Description>
+      <Condition>(request.verb = "POST") or (request.verb = "GET")</Condition>
+
+      <Request>
+        <Step><Name>Spike-1</Name></Step>
+        <Step><Name>Spike-2</Name></Step>
+      </Request>
+
+      <Response>
+        <Step><Name>AM-GoodResponseJson</Name></Step>
+      </Response>
+
+    </Flow>
+
+    <Flow name='unknown request'>
+      <Request>
+        <Step><Name>RF-UnknownRequest</Name></Step>
+      </Request>
+      <Response/>
+    </Flow>
+
+  </Flows>
+
+  <!-- keep this if no target (eg, for oauth token generation and refresh) -->
+  <RouteRule name='NoRouteRule'/>
+
+</ProxyEndpoint>

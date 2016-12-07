@@ -1,0 +1,4 @@
+<SpikeArrest name="Spike-2">
+    <Rate>30pm</Rate>
+    <Identifier ref="proxy.client.ip"/>
+</SpikeArrest>

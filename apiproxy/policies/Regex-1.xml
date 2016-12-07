@@ -1,0 +1,27 @@
+<RegularExpressionProtection name="Regex-1">
+     <Source>request</Source>
+     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+     <URIPath>
+         <Pattern>[\s]*(?i)((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+         <Pattern>[tT]rue</Pattern>
+         <Pattern>.*[tT]rue.*</Pattern>
+     </URIPath>
+     <QueryParam name="q">
+         <Pattern>[\s]*(?i)((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+         <Pattern>[tT]rue</Pattern>
+         <Pattern>.*[tT]rue.*</Pattern>
+     </QueryParam>
+     <Header name="id">
+         <Pattern>[\s]*(?i)((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+         <Pattern>[tT]rue</Pattern>
+         <Pattern>.*[tT]rue.*</Pattern>
+     </Header>
+     <FormParam name="q">
+         <Pattern>[\s]*(?i)((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+         <Pattern>[tT]rue</Pattern>
+         <Pattern>.*[tT]rue.*</Pattern>
+     </FormParam>
+     <Variable name="request.content">
+         <Pattern>[\s]*(?i)((delete)|(exec)|(drop\s*table)|(insert)|(shutdown)|(update)|(\bor\b))</Pattern>
+     </Variable>
+</RegularExpressionProtection>

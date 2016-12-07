@@ -1,0 +1,10 @@
+<APIProxy revision='1' name='apitechforum'>
+  <ConfigurationVersion minorVersion='0' majorVersion='4'/>
+  <Description>An API Proxy bundle to demonstrate various Security aspects of Apigee Edge, for API Tech Forum</Description>
+  <CreatedAt>1480987085599</CreatedAt>
+  <CreatedBy>dino</CreatedBy>
+  <DisplayName>apitechforum</DisplayName>
+  <LastModifiedAt>1481095986110</LastModifiedAt>
+  <LastModifiedBy>orgAdmin</LastModifiedBy>
+  <TargetEndpoints/>
+</APIProxy>

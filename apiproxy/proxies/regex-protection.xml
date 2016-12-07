@@ -1,0 +1,56 @@
+<ProxyEndpoint name='regex-protection'>
+  <Description>Endpoint to demonstrate Regex threat protection</Description>
+  <HTTPProxyConnection>
+    <BasePath>/apitechforum/regex-protection</BasePath>
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+
+  <FaultRules>
+    <FaultRule name='regex-triggered'>
+      <Step>
+        <Name>JS-FormatRegexFault</Name>
+      </Step>
+      <Condition>regularexpressionprotection.failed = true</Condition>
+    </FaultRule>
+  </FaultRules>
+
+  <PreFlow name='PreFlow'>
+      <Request/>
+      <Response/>
+  </PreFlow>
+  <PostFlow name='PostFlow'>
+      <Request/>
+      <Response>
+        <Step><Name>AM-CleanResponseHeaders</Name></Step>
+      </Response>
+  </PostFlow>
+
+  <Flows>
+    <Flow name='sql injection protection'>
+      <Description>demonstrate SQL Injection threat protection</Description>
+      <Condition>(request.verb = "POST") or (request.verb = "GET")</Condition>
+      <Request>
+
+        <Step><Name>Regex-1</Name></Step>
+
+      </Request>
+
+      <Response>
+        <Step><Name>AM-GoodResponseJson</Name></Step>
+      </Response>
+
+    </Flow>
+
+    <Flow name='unknown request'>
+      <Request>
+        <Step><Name>RF-UnknownRequest</Name></Step>
+      </Request>
+      <Response/>
+    </Flow>
+
+  </Flows>
+
+  <!-- keep this if no target (eg, for oauth token generation and refresh) -->
+  <RouteRule name='NoRouteRule'/>
+
+</ProxyEndpoint>

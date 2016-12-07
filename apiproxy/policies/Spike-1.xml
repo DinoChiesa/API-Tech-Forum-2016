@@ -1,0 +1,4 @@
+<SpikeArrest name="Spike-1">
+    <Rate>30pm</Rate>
+    <Identifier ref="request.header.apikey"/>
+</SpikeArrest>

@@ -1,0 +1,48 @@
+<AssignMessage name='AM-OAuthCheckResponse'>
+  <Remove>
+    <Headers>
+      <Header name='Accept'/>
+      <Header name='Host'/>
+      <Header name='user-agent'/>
+      <Header name='Authorization'/>
+      <Header name='Signature'/>
+      <Header name='Date'/>
+      <Header name='X-Powered-By'/>
+      <Header name='X-Forwarded-For'/>
+      <Header name='X-Forwarded-Host'/>
+      <Header name='X-Forwarded-Server'/>
+      <Header name='X-Forwarded-Port'/>
+      <Header name='X-Forwarded-Proto'/>
+    </Headers>
+  </Remove>
+  <Set>
+    <Payload contentType='application/json' >{
+  "runtime" : {
+    "organization.name" : "{organization.name}",
+    "environment.name" : "{environment.name}",
+    "apiproxy.name" : "{apiproxy.name}",
+    "apiproxy.revision" : {apiproxy.revision},
+    "proxy.endpoint" : "{proxy.name}",
+    "client.ip" : "{client.ip}",
+    "message" : "{messageid}",
+    "system.uuid" : "{system.uuid}",
+    "system.time" : "{system.time}",
+    "system.timestamp" : {system.timestamp}
+  },
+  "request" : {
+    "request.path" : "{request.path}",
+    "client_id" : "{client_id}",
+    "authenticated_user" : "{accesstoken.authenticated_user}",
+    "app.name" : "{developer.app.name}",
+    "developer.email" : "{apigee.developer.email}",
+    "apiproduct.name" : "{apiproduct.name}",
+    "accesstoken.grant_type" : "{accesstoken.grant_type}",
+    "accesstoken.user_roles" : "{accesstoken.user_roles}",
+    "accesstoken.expires_in" : {expires_in}
+  }
+}
+</Payload>
+    </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew='false' transport='http' type='response'></AssignTo>
+</AssignMessage>

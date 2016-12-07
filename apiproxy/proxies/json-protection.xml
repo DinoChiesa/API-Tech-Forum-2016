@@ -1,0 +1,61 @@
+<ProxyEndpoint name='json-protection'>
+  <Description>Endpoint to demonstrate JSON threat protection</Description>
+  <HTTPProxyConnection>
+    <BasePath>/apitechforum/json-protection</BasePath>
+    <VirtualHost>secure</VirtualHost>
+  </HTTPProxyConnection>
+
+  <FaultRules>
+    <FaultRule name='invalid-json'>
+      <Step>
+        <Name>JS-FormatJsonFault</Name>
+      </Step>
+      <!-- <Condition>error.cause ~~ "^JSONThreatProtection"</Condition> -->
+      <Condition>jsonattack.failed = true</Condition>
+    </FaultRule>
+  </FaultRules>
+
+  <PreFlow name='PreFlow'>
+      <Request/>
+      <Response/>
+  </PreFlow>
+  <PostFlow name='PostFlow'>
+      <Request/>
+      <Response>
+        <Step><Name>AM-CleanResponseHeaders</Name></Step>
+      </Response>
+  </PostFlow>
+
+  <Flows>
+    <Flow name='json protection'>
+      <Description>demonstrate JSON threat protection</Description>
+      <Condition>request.verb = "POST"</Condition>
+      <Request>
+        <Step>
+          <Name>RF-InvalidRequestJson</Name>
+          <Condition>request.header.content-type != "application/json"</Condition>
+        </Step>
+
+        <Step><Name>JSON-1</Name></Step>
+
+      </Request>
+
+      <Response>
+        <Step><Name>AM-GoodResponseJson</Name></Step>
+      </Response>
+
+    </Flow>
+
+    <Flow name='unknown request'>
+      <Request>
+        <Step><Name>RF-UnknownRequest</Name></Step>
+      </Request>
+      <Response/>
+    </Flow>
+
+  </Flows>
+
+  <!-- keep this if no target (eg, for oauth token generation and refresh) -->
+  <RouteRule name='NoRouteRule'/>
+
+</ProxyEndpoint>
