@@ -11,6 +11,14 @@ openssl pkcs8 -topk8 -inform pem -in private.pem -outform pem -nocrypt -out priv
 openssl rsa -in private.pem -outform PEM -pubout -out public.pem
 ```
 
+## To provision a Developer + App for this Proxy
+
+```
+tools/provisionDeveloperAndApp.sh -o cap500 -n -p ApiTechForum -k keys/public.pem 
+``
+
+Take note of the client key and secret.
+
 
 ## To create a JWT signed with that private key:
 

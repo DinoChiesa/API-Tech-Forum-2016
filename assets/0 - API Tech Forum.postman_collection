@@ -1,0 +1,597 @@
+{
+	"variables": [],
+	"info": {
+		"name": "0 - API Tech Forum",
+		"_postman_id": "f978c71e-5e32-0865-ab80-3dacc6cc0053",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth",
+			"description": "",
+			"item": [
+				{
+					"name": "JWT Exchange",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/jwt2token/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "urn:ietf:params:oauth:grant-type:jwt-bearer",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "assertion",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJqQjJwcmY5TGVEc2lKQ3JwbmFSMW5hRFVKWnc1S0FrbyIsImF1ZCI6Imh0dHBzOlwvXC93d3cuY2FwNTAwLmNvbVwvYXBpdGVjaGZvcm1cL3Rva2VuIiwiZXhwIjoxNDgxMDA3NTYxLCJpYXQiOjE0ODEwMDcyNjEsInNjb3BlIjoiaHR0cHM6XC9cL3d3dy5leGFtcGxlLmNvbVwvYXBpdGVjaGZvcnVtLnJlYWRvbmx5In0.AtsYmQSTyQj5Opjg54yYhtM36wXHhxUyxqk637okVsWMgcvcRwyTD3TQN5cU-LeHejUv44nqgKRZ9Yep9KyoJ4aWIgIO9gu2zmx-v3GRaZhMvXzScNARmPupz6QTJYRnPpwL_hKb1rTggo1sIIKpYveiVFtDUZ6d8B8U14KAcqWUwNYUUehICxcHUOsscyX7GyLHkFNxKNcWhSdx_Rafi9cBuNUEUq4pkolcoKmmBnHBTOUo9WTxBlIkXGXHK9186vAJauXKBFevBkclRn1e9GgtR_JXACfUeB-KDFyU90kMBxxuxKfJWlruwzKDkpESrzRqRdGUEThLeT2wS1ftAw",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth token check",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/token-check",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer XXXX",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "anything",
+									"value": "some_value",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "nothing",
+									"value": "something",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth - Password - Keith",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/oauth2-pwd-cc/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic TFZ6SzdBY0c4V01VNW91clZkbWwwQTJaNmc0empjQ0s6emx6SDVrVTJFVVBvRkk3Ng==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "username",
+									"value": "kdanekind",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "password",
+									"value": "I-love-APIs123",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth - Password - Dino",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/oauth2-pwd-cc/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic TFZ6SzdBY0c4V01VNW91clZkbWwwQTJaNmc0empjQ0s6emx6SDVrVTJFVVBvRkk3Ng==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "username",
+									"value": "dchiesa",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "password",
+									"value": "GoDigital",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth - Password - Paul",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/oauth2-pwd-cc/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic TFZ6SzdBY0c4V01VNW91clZkbWwwQTJaNmc0empjQ0s6emx6SDVrVTJFVVBvRkk3Ng==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "username",
+									"value": "paullee",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "password",
+									"value": "CAVA-Rules",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth - Password - Matt",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/oauth2-pwd-cc/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic TFZ6SzdBY0c4V01VNW91clZkbWwwQTJaNmc0empjQ0s6emx6SDVrVTJFVVBvRkk3Ng==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "username",
+									"value": "mjmclaren",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "password",
+									"value": "Protection0",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth - Password - Alan",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/oauth2-pwd-cc/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic TFZ6SzdBY0c4V01VNW91clZkbWwwQTJaNmc0empjQ0s6emx6SDVrVTJFVVBvRkk3Ng==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "username",
+									"value": "alanho",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "password",
+									"value": "123Secure",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OAuth - Client_Credentials",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/oauth2-pwd-cc/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic TFZ6SzdBY0c4V01VNW91clZkbWwwQTJaNmc0empjQ0s6emx6SDVrVTJFVVBvRkk3Ng==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Protection",
+			"description": "",
+			"item": [
+				{
+					"name": "json-protection - good json",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/json-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : true,\n\t\"key4\" : [ \"seven\", 8, false ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "json-protection - bad - too many elements",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/json-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : true,\n\t\"key4\" : [ \"seven\", 8, false ],\n\t\"key5\" : false,\n\t\"key6\" : true,\n\t\"key7\" : false,\n\t\"key8\" : true,\n\t\"key9\" : true,\n\t\"key10\" : 0,\n\t\"key11\" : \"value1\",\n\t\"key12\" : 300,\n\t\"key13\" : true,\n\t\"key14\" : [ \"seven\", 8, false ],\n\t\"key15\" : false,\n\t\"key16\" : true,\n\t\"key17\" : false,\n\t\"key18\" : true,\n\t\"key19\" : true,\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "json-protection - bad - element name length",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/json-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : true,\n\t\"key4-this-element-name-is-too-long\" : [ \"seven\", 8, false ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "json-protection - bad - string length",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/json-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : \"grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJ1WTZKeE02MThweHBpaUxnNzRhRE5lam5qck9Bb2FPSCIsImF1ZCI6Imh0dHBzOlwvXC93d3cuY2FwNTAwLmNvbVwvYXBpdGVjaGZvcm1cL3Rva2VuIiwiZXhwIjoxNDgxMDAwOTA1LCJpYXQiOjE0ODEwMDA2MDUsInNjb3BlIjoiaHR0cHM6XC9cL3d3dy5leGFtcGxlLmNvbVwvYXBpdGVjaGZvcnVtLnJlYWRvbmx5In0.fFBID_HOohjE8eiPKGxX0T3k024ujHAmbgNpgzGRs30DlRNfa0BqkCdtCYwMbtFM0SuzlwIV7lzt-nqac_vKPRZKBdwW6l_WGc33t9B3ZGxklE6lcqBD25oubwd95_nvrnlpuf1Fo3K1nHKJr8n1RocHsn2DLT2W18r3xQVFFDzEN-JNMf8ok9i9fkRF4gXF6zNTQ9X-0F_HvzEzLwuhu_4IdFMdjHk02xK1fAQZcbzkSUH8QKaciG5z7u89vM2HWBrKYp6DFxelD9f1iGYfw9JW3VbyH8AeQXGGknUVez_V2HLj2sj4pSEqzUXd1JdUJ7Yx3ygdWrezpF6JoNY7GA\"\n\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "json-protection - bad - container depth",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/json-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : {\n\t\t\"child1\" : {\n\t\t\t\"child1-child\" : {\n\t\t\t\t\"one-more-time\" : {\n\t\t\t\t\t\"leaf-node\" : true\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t},\n\t\"key3\" : true,\n\t\"key4\" : [ \"seven\", 8, false ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "json-protection - bad - array element count",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/json-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : [ 1, \"too\", 3, \"for\", 5, 6, \"seven\", 8, false, 10, 11, 20000, 18, true ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "regex - good request",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/regex-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : true,\n\t\"key4\" : [ \"seven\", 8, false ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "regex - bad - delete in URL",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/regex-protection/delete",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : true,\n\t\"key4\" : [ \"seven\", 8, false ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "regex - bad - drop table in form",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/regex-protection",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "q",
+									"value": "DROP TABLE Students",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "regex - bad - drop table in query",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/regex-protection?q=drop table",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "q",
+									"value": "drop table Students",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "regex - rate limited",
+					"request": {
+						"url": "https://{{org}}-{{env}}.apigee.net/apitechforum/rate-limiting",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\t\"key1\" : \"value1\",\n\t\"key2\" : 300,\n\t\"key3\" : true,\n\t\"key4\" : [ \"seven\", 8, false ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
